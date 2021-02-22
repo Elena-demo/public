@@ -1,29 +1,24 @@
 function MainFunction (arr, index) {
   let select = document.createElement('select');
   document.body.append(select);
-  let option;
 
-  if(typeof arr[1] == typeof {}) {
+  function createOptions(arr, index, select) {
     for (let i = 0; i < arr.length; i++) {
-      option = document.createElement('option')
+      const option = document.createElement('option')
       select.append(option)
       index === (i + 1) ? option.setAttribute("selected", "selected") : false
       option.textContent = arr[i].label
       option.value = arr[i].value;
     }
   }
+  if(typeof arr[1] == typeof {}) {
+      createOptions(arr, index, select);
+    }
   else
   {
-    arr3 = createArrObj(arr);
-    for (let i = 0; i < arr3.length; i++) {
-
-      option = document.createElement('option')
-      select.append(option)
-      index === (i + 1) ? option.setAttribute("selected", "selected") : false
-      option.textContent = arr3[i].label
-      option.value = arr3[i].value;
+    const arr3 = createArrObj(arr);
+      createOptions(arr3, index, select);
     }
-  }
 }
 let arr = [1, 'два', 3, 'четыре'];
 let wer = [
